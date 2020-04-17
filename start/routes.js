@@ -7,7 +7,10 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-
 Route.post('/users', 'UserController.create')
+
 Route.post('/sessions', 'SessionController.create')
 
+Route.get('/logado', ({ request, response }) => {
+  return response.send()
+}).middleware(['auth'])
