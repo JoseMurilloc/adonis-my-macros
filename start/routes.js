@@ -7,10 +7,12 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.post('/users', 'UserController.create')
+Route.post('/users', 'UserController.store')
 
-Route.post('/sessions', 'SessionController.create')
+Route.post('/sessions', 'SessionController.store')
 
-Route.get('/logado', ({ request, response }) => {
-  return response.send()
+Route.group(() => {
+  Route.get('/foods', 'FoodController.index')
+  Route.post('/foods', 'FoodController.store')
+  Route.put('/foods/:id', 'FoodController.update')
 }).middleware(['auth'])

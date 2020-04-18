@@ -3,7 +3,7 @@
 const User = use('App/Models/User')
 
 class UserController {
-  async create({ request, response }) {
+  async store({ request, response }) {
     const data = request.only(['username', 'password', 'email'])
 
     const user = await User.create(data)

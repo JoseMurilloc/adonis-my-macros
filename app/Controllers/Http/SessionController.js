@@ -2,7 +2,7 @@
 
 class SessionController {
 
-  async create({ auth, request }) {
+  async store({ auth, request }) {
     const { email, password } = request.all()
     const token = await auth.attempt(email, password)
 
